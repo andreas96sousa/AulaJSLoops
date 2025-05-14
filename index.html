@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios de Loops</title>
+</head>
+<body>
+    <h2>
+        Exercicios de Loops
+    </h2>
+    <h3>
+        1.  Leia o preço de um produto e a cor da sua etiqueta. De acordo com a cor da etiqueta aplique um desconto sobre o produto. Verde - 10% | Amarelo - 20% | Azul - 30 % | Vermelho 40%. Para a questão 1 resolva o problema de inserção de uma cor de etiqueta que não existe na loja. Garanta que o usuário só irá digitar Verde, Amarelo, Azul ou Vermelho. Enquanto o usuário não digitar um valor válido para etiqueta, informe que ele digitou um valor inválido e peça novamente a cor da etiqueta.
+    </h3>
+
+    <p id="result1">...</p>
+
+    <input id="price" type="number" placeholder="Valor do Produto">
+    <input id="color" type="text" placeholder="Cor da Etiqueta">
+    <button onclick="discount()">Calcular Desconto</button>
+
+
+    <h3>
+        2.  Crie um programa que peça ao usuário para digitar uma senha. Continue pedindo a senha até que o usuário digite "1234". Use um laço do…while para controlar as tentativas e, quando a senha correta for inserida, exiba a mensagem "Acesso Permitido".
+    </h3>
+
+    <p id="result2">...</p>
+
+    <input id="password" type="number" placeholder="password">
+    <button onclick="pass()">Verify</button>
+
+    <h3>
+        3.  Você precisa criar um programa que ajude a calcular a média de notas de uma turma. O programa deve pedir ao usuário a quantidade de alunos na turma e, em seguida, solicitar a nota de cada aluno. Utilize um laço for para capturar as notas e acumular a soma. Após inserir todas as notas, o programa deve calcular e exibir a média da turma.
+    </h3>
+
+    <p id="result3">...</p>
+
+    <button onclick="mediaTurma()">Calcular</button>
+
+    <h3>
+        4.  Você é responsável por calcular o total das vendas do dia para uma pequena loja. Escreva um programa que peça ao usuário o valor de cada venda, uma por vez. Use um laço de repetição para capturar esses valores e adicione-os a um total acumulado. O programa deve continuar pedindo valores até que o usuário insira "0" (para finalizar). Ao final, exiba o total de vendas do dia.
+    </h3>
+
+    <p id="result4">...</p>
+
+    <button onclick="vendas()">Somar Vendas</button>
+    <h3>
+        4.  Uma loja deseja cadastrar 5 clientes e verificar se o faturamento da loja foi superior a loja B (faturamento = 54000). Se o faturamento atingir esse valor mostre na tela uma mensagem contendo em quanto foi superado o faturamento.
+    </h3>
+
+    <p id="result5">...</p>
+
+    <button onclick="vendas()">Somar Vendas</button>
+    <script>
+
+        function discount(){
+            let discounter = 0
+            switch(color.value){
+            case "verde":
+                discounter = 0.1
+                result1.innerHTML = `<b>O valor do produto com desconto é R$ ${Number(price.value) - (Number(price.value)*discounter)}</b>`
+                break;
+            case "amarelo":
+                discounter = 0.2
+                result1.innerHTML = `<b>O valor do produto com desconto é R$ ${Number(price.value) - (Number(price.value)*discounter)}</b>`
+                break;
+            case "azul":
+                discounter = 0.3
+                result1.innerHTML = `<b>O valor do produto com desconto é R$ ${Number(price.value) - (Number(price.value)*discounter)}</b>`
+                break;
+            case "vermelho":
+                discounter = 0.4
+                result1.innerHTML = `<b>O valor do produto com desconto é R$ ${Number(price.value) - (Number(price.value)*discounter)}</b>`
+                break;
+            default:
+                result1.innerHTML = "Etiqueta Invalida, digite novamente a cor da etiqueta"
+            
+        }
+        }
+        function pass(){
+            if(Number(password.value) !== 1234){
+                result2.innerHTML  = `Senha Inválida`
+            }else{
+                result2.innerHTML  = `Acesso Permitido`
+            }
+        }
+        function mediaTurma(){
+            let alunosQ = Number(prompt("digite a quantidade de alunos na sua sala: "))
+            let aluno = []
+            for(let i = 1; i <= alunosQ; i++){
+                aluno[i-1] = Number(prompt(`Nota do aluno ${i}: `))
+            }
+
+            let mediaTotal = 0 
+
+            aluno.forEach(element => {
+                mediaTotal += Number(element)
+            });
+
+            result3.innerHTML = `A média da turma é de <b>${mediaTotal.toFixed(2)}</b>`
+        }
+        function vendas(){
+            let i = 1
+            let vendasDigitadas = ''
+            let somaVendas = 0
+            do{
+                vendasDigitadas = prompt(`Digite o valor da venda ${i}, para finalizar digite '0'`)
+                i++
+                somaVendas += Number(vendasDigitadas)
+            }while(vendasDigitadas !== "0")
+            result4.innerHTML = `O valor vendido foi de <b>R$ ${somaVendas}</b>`
+        }
+        function faturamento(){
+
+        }
+    </script>
+</body>
+</html>
